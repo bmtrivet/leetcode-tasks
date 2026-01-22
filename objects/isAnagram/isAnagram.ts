@@ -16,24 +16,33 @@ import { deepEqual } from "../deepEqual/deepEqual";
 //   );
 // };
 
-const splitStr = (str: string) => {
-  const splitStr: { [key: string]: number } = {};
+// For training
+// const splitStr = (str: string) => {
+//   const splitStr: { [key: string]: number } = {};
 
-  for (let value of str) {
-    if (splitStr[value]) {
-      splitStr[value] += 1;
-    } else {
-      splitStr[value] = 1;
-    }
-  }
+//   for (let value of str) {
+//     if (splitStr[value]) {
+//       splitStr[value] += 1;
+//     } else {
+//       splitStr[value] = 1;
+//     }
+//   }
 
-  return splitStr;
+//   return splitStr;
+// };
+
+// export const isAnagram = (str1: string, str2: string) => {
+//   const splitStr1 = splitStr(str1);
+//   const splitStr2 = splitStr(str2);
+
+//   //return sortedStringify(splitStr1) === sortedStringify(splitStr2);
+//   return deepEqual(splitStr1, splitStr2);
+// };
+
+export const alphabeticSort = (str: string) => {
+  return str.split("").sort().join("");
 };
 
 export const isAnagram = (str1: string, str2: string) => {
-  const splitStr1 = splitStr(str1);
-  const splitStr2 = splitStr(str2);
-
-  //return sortedStringify(splitStr1) === sortedStringify(splitStr2);
-  return deepEqual(splitStr1, splitStr2);
+  return alphabeticSort(str1) === alphabeticSort(str2);
 };
